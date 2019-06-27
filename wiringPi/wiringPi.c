@@ -193,7 +193,7 @@ static volatile uint32_t *timerIrqRaw;
 #endif
 
 /*add for BananaPro by LeMaker team*/
-// for mmap BananaPro 
+// for mmap BananaPro
 #define MAX_PIN_NUM  (0x40)  //64
 #define SUNXI_GPIO_BASE (0x01C20800)
 #define MAP_SIZE (4096*2)
@@ -483,9 +483,9 @@ static int pinTobcm [64] ={
     67, 65, //map to BCM GPIO8,9
     64, 66, //map to BCM GPIO10,11
     7, 8, //map to BCM GPIO12,13
-    198, 199, //map to BCM GPIO14,15 
-    16, 0, //map to BCM GPIO16,17 
-    6, 13, //map to BCM GPIO18,19 
+    198, 199, //map to BCM GPIO14,15
+    16, 0, //map to BCM GPIO16,17
+    6, 13, //map to BCM GPIO18,19
     15, 14, //map to BCM GPIO20,21
     3, 200, //map to BCM GPIO22,23
     201, 1, //map to BCM GPIO24,25
@@ -504,7 +504,7 @@ static int pinTobcm [64] ={
 
 
 static int physToGpio_neo [MAX_PIN_COUNT] ={
-    -1, 
+    -1,
     /* 24 Pin */
     -1, -1,   //1, 2
     12, -1,   //3, 4
@@ -541,7 +541,7 @@ static int physToGpio_neo [MAX_PIN_COUNT] ={
 
 
 static int physToGpio_neocore [MAX_PIN_COUNT] ={
-    -1, 
+    -1,
     /* GPIO-1 24Pin */
     -1, -1,   //1, 2
     12, -1,   //3, 4
@@ -691,7 +691,7 @@ static int physToGpio_duo2 [MAX_PIN_COUNT] ={
 //
 
 static int syspin_neo [MAX_PIN_COUNT] ={
-    -1, -1, 2, 3, 4, 5, 6, 7, 
+    -1, -1, 2, 3, 4, 5, 6, 7,
     8, 9, 10, 11, 12, 13, 14, 15,
     16, 17, 18, 19, 20, 21, 22, 23,
     24, 25, 26, 27, -1, -1, -1, -1,
@@ -703,7 +703,7 @@ static int syspin_neo [MAX_PIN_COUNT] ={
 };
 
 static int syspin_neocore [MAX_PIN_COUNT] ={
-    -1, -1, 2, 3, 4, 5, 6, 7, 
+    -1, -1, 2, 3, 4, 5, 6, 7,
     8, 9, 10, 11, 12, 13, 14, 15,
     16, 17, 18, 19, 20, 21, 22, 23,
     24, 25, 26, 27, -1, -1, -1, -1,
@@ -716,7 +716,7 @@ static int syspin_neocore [MAX_PIN_COUNT] ={
 
 
 static int syspin_m1 [MAX_PIN_COUNT] ={
-    -1, -1, 2, 3, 4, 5, 6, 7, 
+    -1, -1, 2, 3, 4, 5, 6, 7,
     8, 9, 10, 11, 12, 13, 14, 15,
     16, 17, 18, 19, 20, 21, 22, 23,
     24, 25, 26, 27, -1, -1, -1, -1,
@@ -728,7 +728,7 @@ static int syspin_m1 [MAX_PIN_COUNT] ={
 };
 
 static int syspin_duo [MAX_PIN_COUNT] ={
-    -1, -1, 2, 3, 4, 5, 6, 7, 
+    -1, -1, 2, 3, 4, 5, 6, 7,
     8, 9, 10, 11, 12, 13, 14, 15,
     16, 17, 18, 19, 20, 21, 22, 23,
     24, 25, 26, 27, -1, -1, -1, -1,
@@ -740,7 +740,7 @@ static int syspin_duo [MAX_PIN_COUNT] ={
 };
 
 static int syspin_duo2 [MAX_PIN_COUNT] ={
-    -1, -1, 2, 3, 4, 5, 6, 7, 
+    -1, -1, 2, 3, 4, 5, 6, 7,
     8, 9, 10, 11, 12, 13, 14, 15,
     16, 17, 18, 19, 20, 21, 22, 23,
     24, 25, 26, 27, -1, -1, -1, -1,
@@ -758,7 +758,7 @@ static int syspin_duo2 [MAX_PIN_COUNT] ={
     24, 25, -1, 27, -1, -1, -1, -1,
     -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
     -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
-	
+
     // 64~73
     -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
 };*/
@@ -978,7 +978,7 @@ uint32_t readl(uint32_t addr) {
     uint32_t mmap_seek = ((addr - mmap_base) >> 2);
     val = *(gpio + mmap_seek);
     return val;
-    
+
 }
 
 void writel(uint32_t val, uint32_t addr) {
@@ -1043,7 +1043,7 @@ void sunxi_pwm_set_mode(int mode) {
         printf(">>function%s,no:%d,mode? :0x%x\n", __func__, __LINE__, val);
     writel(val, SUNXI_PWM_CTRL_REG);
     delay(1);
-    print_pwm_reg();   
+    print_pwm_reg();
 }
 
 void sunxi_pwm_set_clk(int clk) {
@@ -1326,7 +1326,7 @@ int wiringPiFailure(int fatal, const char *message, ...) {
  *	Seems there are some boards with 0000 in them (mistake in manufacture)
  *	So the distinction between boards that I can see is:
  *	0000 - Error
- *	0001 - Not used 
+ *	0001 - Not used
  *	0002 - Model B,  Rev 1,   256MB, Egoman
  *	0003 - Model B,  Rev 1.1, 256MB, Egoman, Fuses/D14 removed.
  *	0004 - Model B,  Rev 2,   256MB, Sony
@@ -1396,7 +1396,7 @@ int piBoardRev(void) {
     BoardHardwareInfo* retBoardInfo;
     int ret = getBoardType(&retBoardInfo);
     if (ret >= 0) {
-      if (retBoardInfo->boardTypeId > ALLWINNER_BASE && retBoardInfo->boardTypeId <= ALLWINNER_MAX 
+      if (retBoardInfo->boardTypeId > ALLWINNER_BASE && retBoardInfo->boardTypeId <= ALLWINNER_MAX
                 && retBoardInfo->boardTypeId != NanoPi_A64) {
         version = BPRVER;
         if (wiringPiDebug)
@@ -1426,7 +1426,7 @@ void piBoardId(int *model, int *rev, int *mem, int *maker, int *overVolted) {
     BoardHardwareInfo* retBoardInfo;
     int ret = getBoardType(&retBoardInfo);
     if (ret >= 0) {
-        if (retBoardInfo->boardTypeId > ALLWINNER_BASE && retBoardInfo->boardTypeId <= ALLWINNER_MAX 
+        if (retBoardInfo->boardTypeId > ALLWINNER_BASE && retBoardInfo->boardTypeId <= ALLWINNER_MAX
                 && retBoardInfo->boardTypeId != NanoPi_A64) {
             *model = retBoardInfo->boardTypeId;
             *rev = PI_VERSION_1_2;
@@ -1436,7 +1436,7 @@ void piBoardId(int *model, int *rev, int *mem, int *maker, int *overVolted) {
             *model = 0;
             *rev = 0;
             *mem = 0;
-            *maker = 0; 
+            *maker = 0;
         }
     } else {
         *model = 0;
@@ -1527,7 +1527,7 @@ int getAlt(int pin) {
         printf("Invalid pin index.\n");
         return -1;
 	}
-	
+
     if (pinToGpio == 0 || physToGpio == 0) {
         printf("please call wiringPiSetup first.\n");
         return -1;
@@ -1538,7 +1538,7 @@ int getAlt(int pin) {
         pin = pinToGpio [pin];
     else if (wiringPiMode == WPI_MODE_PHYS)
         pin = physToGpio[pin];
-    else if (wiringPiMode == WPI_MODE_GPIO)    //pin = pinTobcm[pin]; 
+    else if (wiringPiMode == WPI_MODE_GPIO)    //pin = pinTobcm[pin];
         pin = pin;
     else return 0;
 
@@ -1557,7 +1557,7 @@ int getAltSilence(int pin) {
   if (pin >= MAX_PIN_COUNT || pin < 0) {
         return -1;
   }
-  
+
     if (pinToGpio == 0 || physToGpio == 0) {
         return -1;
     }
@@ -1567,7 +1567,7 @@ int getAltSilence(int pin) {
         pin = pinToGpio [pin];
     else if (wiringPiMode == WPI_MODE_PHYS)
         pin = physToGpio[pin];
-    else if (wiringPiMode == WPI_MODE_GPIO)    //pin = pinTobcm[pin]; 
+    else if (wiringPiMode == WPI_MODE_GPIO)    //pin = pinTobcm[pin];
         pin = pin;
     else return 0;
 
@@ -1756,7 +1756,7 @@ void pinMode(int pin, int mode) {
       if (wiringPiDebug) {
         printf(">>> physToGpio[pin] ret %d\n", pin);
       }
-    } else if (wiringPiMode == WPI_MODE_GPIO) {                 // pin = pinTobcm[pin]; 
+    } else if (wiringPiMode == WPI_MODE_GPIO) {                 // pin = pinTobcm[pin];
 
       pin = pin;
 
@@ -1770,7 +1770,7 @@ void pinMode(int pin, int mode) {
      }
      return;
    }
-   /*VCC or GND return directly*/ 
+   /*VCC or GND return directly*/
    if (-1 == pin) {
             //printf("[%s:L%d] the pin:%d is invaild,please check it over!\n", __func__,  __LINE__, pin);
      return;
@@ -1832,7 +1832,7 @@ void pullUpDnControl(int pin, int pud) {
         else if (wiringPiMode == WPI_MODE_PHYS)
             pin = physToGpio[pin];
         else if (wiringPiMode == WPI_MODE_GPIO)
-            // pin = pinTobcm[pin]; 
+            // pin = pinTobcm[pin];
             pin = pin;
         else return;
         if (wiringPiDebug)
@@ -1915,7 +1915,7 @@ int digitalRead(int pin) {
 			    printf(">>> physToGpio[pin] ret %d\n", pin);
 		    }
 	    } else if (wiringPiMode == WPI_MODE_GPIO) {
-		    // pin = pinTobcm[pin]; 
+		    // pin = pinTobcm[pin];
         pin = pin;
 
 		    if (wiringPiDebug) {
@@ -1964,7 +1964,7 @@ int digitalReadSilence(int pin) {
       } else if (wiringPiMode == WPI_MODE_PHYS) {
         pin = physToGpio[pin];
       } else if (wiringPiMode == WPI_MODE_GPIO) {
-        // pin = pinTobcm[pin]; 
+        // pin = pinTobcm[pin];
         pin = pin;
       } else {
         return LOW;
@@ -2115,7 +2115,7 @@ void pwmWrite(int pin, int value) {
 
 /*
  * analogRead:
- *	Read the analog value of a given Pin. 
+ *	Read the analog value of a given Pin.
  *	There is no on-board Pi analog hardware,
  *	so this needs to go to a new node.
  *********************************************************************************
@@ -2132,7 +2132,7 @@ int analogRead(int pin) {
 
 /*
  * analogWrite:
- *	Write the analog value to the given Pin. 
+ *	Write the analog value to the given Pin.
  *	There is no on-board Pi analog hardware,
  *	so this needs to go to a new node.
  *********************************************************************************
@@ -2174,7 +2174,7 @@ void pwmToneWrite(int pin, int freq) {
  *	Write an 8-bit byte to the first 8 GPIO pins - try to do it as
  *	fast as possible.
  *	However it still needs 2 operations to set the bits, so any external
- *	hardware must not rely on seeing a change as there will be a change 
+ *	hardware must not rely on seeing a change as there will be a change
  *	to set the outputs bits to zero, then another change to set the 1's
  *********************************************************************************
  */
@@ -2307,7 +2307,7 @@ int wiringPiISR(int pin, int mode, void (*function)(void)) {
     }
 
     return wiringPiFailure(WPI_FATAL, "wiringPiISR: Not implemented");
-    
+
     if ((pin < 0) || (pin >= MAX_PIN_COUNT))
         return wiringPiFailure(WPI_FATAL, "wiringPiISR: pin must be 0-%d (%d)\n", MAX_PIN_COUNT-1,pin);
 
@@ -2328,7 +2328,7 @@ int wiringPiISR(int pin, int mode, void (*function)(void)) {
 
     //if (edge[bcmGpioPin] == -1)
         return wiringPiFailure(WPI_FATAL, "wiringPiISR: pin not sunpprt on Nano PI M1 (%d,%d)\n", pin, bcmGpioPin);
-    
+
 }
 
 /*
@@ -2461,6 +2461,10 @@ int wiringPiSetup(void) {
     if (getenv(ENV_CODES) != NULL)
         wiringPiReturnCodes = TRUE;
 
+    int old_user = geteuid();
+    int ret =  seteuid(0);
+    if(ret<0)
+      perror("seteuid");
     if (geteuid() != 0)
         (void)wiringPiFailure(WPI_FATAL, "wiringPiSetup: Must be root. (Did you forget sudo?)\n");
 
@@ -2471,16 +2475,21 @@ int wiringPiSetup(void) {
 
     // Open the master /dev/memory device
 
-    if ((fd = open("/dev/mem", O_RDWR | O_SYNC | O_CLOEXEC)) < 0)
+    if ((fd = open("/dev/mem", O_RDWR | O_SYNC | O_CLOEXEC)) < 0){
+      perror("open");
         return wiringPiFailure(WPI_ALMOST, "wiringPiSetup: Unable to open /dev/mem: %s\n", strerror(errno));
-
+    }
+    ret = seteuid(old_user);
+    if(ret<0)
+      perror("seteuid");
 
     // GPIO:
     // BLOCK SIZE * 2 increases range to include pwm addresses
     gpio = (uint32_t *) mmap(0, BLOCK_SIZE*10, PROT_READ | PROT_WRITE, MAP_SHARED, fd, GPIO_BASE_BP);
-    if ((int32_t) gpio == -1)
-        return wiringPiFailure(WPI_ALMOST, "wiringPiSetup: mmap (GPIO) failed: %s\n", strerror(errno));
-
+    if ((int32_t) gpio == -1){
+      perror("mmap");
+      return wiringPiFailure(WPI_ALMOST, "wiringPiSetup: mmap (GPIO) failed: %s\n", strerror(errno));
+    }
     // PWM
 
     pwm = (uint32_t *) mmap(0, BLOCK_SIZE, PROT_READ | PROT_WRITE, MAP_SHARED, fd, GPIO_PWM_BP);
